@@ -1,0 +1,71 @@
+/* Main Socket Client Styles */
+
+html {
+    height: 100%;
+}
+body {
+    font: 13px Helvetica, Arial;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+}
+
+.left-wrapper {
+    width: 30%;
+    height:100%;
+    background-color: #ddd;
+    float: left;
+    border-right: 2px #ccc solid;
+}
+
+.right-wrapper {
+    width: 70%;
+    height:100%;
+    float: left;
+}
+
+/* Input panel */
+
+.input-header {
+    padding: 10px;
+}
+
+.input-controls {
+    margin: 10px;
+}
+
+/* Messages */
+
+.messages-header {
+    padding: 10px;
+    border-bottom: 2px #ccc solid;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#messages li {
+    padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+    background: #eee;
+}

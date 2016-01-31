@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket Example</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+  </head>
+  <body>
+    <div class="page">
+
+      <div class="left-wrapper">
+        <div class="input-header">
+          <label>Send action to: </label>
+          <select id="selCar">
+            <option value="red">Red Car</option>
+            <option value="blue">Blue Car</option>
+            <option value="green">Green Car</option>
+          </select>
+        </div>
+        <div class="input-controls">
+          <button onclick="emitMessage('Horn Honked!')">Honk the horn!</button>
+          <button onclick="emitMessage('Lights on')">Turn the lights on</button>
+          <button onclick="emitMessage('Lights off')">Turn the lights off</button>
+        </div>
+      </div>
+
+      <div class="right-wrapper">
+        <div class="messages-header">
+          <label>Your car: </label>
+          <select id="myCar">
+            <option value="All">Listen to all cars</option>
+            <option value="red">Red Car</option>
+            <option value="blue">Blue Car</option>
+            <option value="green">Green Car</option>
+          </select>
+        </div>
+        <ul id="messages"></ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
