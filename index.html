@@ -11,15 +11,15 @@
         <div class="input-header">
           <label>Send action to: </label>
           <select id="selCar">
-            <option value="red">Red Car</option>
+            <!-- <option value="red">Red Car</option>
             <option value="blue">Blue Car</option>
-            <option value="green">Green Car</option>
+            <option value="green">Green Car</option> -->
           </select>
         </div>
         <div class="input-controls">
-          <button onclick="emitMessage('Horn Honked!')">Honk the horn!</button>
-          <button onclick="emitMessage('Lights on')">Turn the lights on</button>
-          <button onclick="emitMessage('Lights off')">Turn the lights off</button>
+          <button onclick="emitMessage('honk_horn')">Honk the horn!</button>
+          <button onclick="emitMessage('lights_on')">Turn the lights on</button>
+          <button onclick="emitMessage('lights_off')">Turn the lights off</button>
         </div>
       </div>
 
@@ -28,9 +28,9 @@
           <label>Your car: </label>
           <select id="myCar">
             <option value="All">Listen to all cars</option>
-            <option value="red">Red Car</option>
+            <!-- <option value="red">Red Car</option>
             <option value="blue">Blue Car</option>
-            <option value="green">Green Car</option>
+            <option value="green">Green Car</option> -->
           </select>
         </div>
         <ul id="messages"></ul>
