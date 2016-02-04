@@ -1,13 +1,23 @@
 /**
  * Created by Rich on 30-Jan-16.
  */
-var socket = io();
+var socket = io('http://localhost:8000');
 
 socket.on('message', function(msg){
-    if(msg.command) {
+    if(msg.error) {
+        console.log('error ', msg)
+
+    } else if(msg.command) {
         handleCommand(msg);
     } else {
         handleVehicleIds(msg);
+    }
+});
+
+socket.on('json', function(msg){
+    console.log('json ', msg)
+    if(msg.command) {
+        handleCommand(msg);
     }
 });
 
@@ -48,8 +58,9 @@ function emitMessage(message) {
         vehicle_id: $('#selCar').val(),
         command: message
     };
-    socket.emit('message', msg);
+    socket.emit('json', msg);
 }
 
-
-socket.emit('message', { command: 'list_vehicle_ids'} );
+socket.on('connect', function() {
+    socket.emit('json', { command: 'list_vehicle_ids'} );
+});
