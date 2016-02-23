@@ -27,30 +27,12 @@ button {
     height: 100%;
 }
 
-.left-wrapper {
-    width: 30%;
-    height:100%;
-    background-color: #ddd;
-    float: left;
-    border-right: 2px #ccc solid;
-}
-
-.right-wrapper {
-    width: 70%;
-    height:100%;
-    float: left;
-}
-
-/* Input panel */
-
-.input-header {
+.car {
+    border: 1px solid #515151;
+    width: 300px;
+    height: 300px;
     padding: 10px;
 }
-
-.input-controls {
-    margin: 10px;
-}
-
 /* Messages */
 
 .messages-header {
@@ -58,14 +40,14 @@ button {
     border-bottom: 2px #ccc solid;
 }
 
-#messages {
+.messages {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-#messages li {
+.message {
     padding: 5px 10px;
 }
-#messages li:nth-child(odd) {
+.message:nth-child(odd) {
     background: #eee;
 }
