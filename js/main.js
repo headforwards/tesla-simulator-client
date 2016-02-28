@@ -10,7 +10,6 @@ var carProto = {
     $car: null,
     init: function($container, vehicle_id) {
         this._vehicle_id = vehicle_id;
-        //Render itself
         this._render()
         $container.append(this.$car);
     },
@@ -19,10 +18,11 @@ var carProto = {
         this.$car = $('<div class="car" id="' + this._vehicle_id + '"/>');
 
         this.$car.html('<ul class="messages"/>');
+        this._renderMessage('created "' + this._vehicle_id + '" car');
     },
 
     _renderMessage: function(message) {
-        $('messages', this.$car).append(
+        $('.messages', this.$car).append(
             $('<li class="message">').text(message));
     },
 
@@ -34,16 +34,14 @@ var carProto = {
 var socket = io('http://localhost:8000');
 
 socket.on('json', function(msg){
-    console.log('json ', msg)
     if(msg.error) {
-        console.log('error ', msg)
-
+        console.log('error ', msg);
     } else if(!msg.command) {
         console.log('error - no command', msg)
     } else if(msg.command === 'list_vehicle_ids') {
         handleVehicleIds(msg);
     } else {
-        ///
+        handleCommand(msg);
     }
 });
 
@@ -60,28 +58,18 @@ function handleVehicleIds(msg) {
             car.init($container, id);
         });
 
-
     } catch(e) {
         console.error('handleVehicleIds message error ', msg, e);
     }
 }
 
 function handleCommand(msg) {
-    var myCar = $('#myCar').val();
-
-
-    if (msg.vehicle_id === myCar || myCar === 'All') {
-        // FIXME inline styles, just for demo!
-        $('#messages').append($('<li style="color:' + msg.vehicle_id + '">').text(msg.command));
+    try {
+        var car = cars[msg.vehicle_id];
+        car.handleCommand(msg);
+    } catch(e) {
+        console.error('handleCommand message error ', msg, e);
     }
-}
-
-function emitMessage(message) {
-    var msg = {
-        vehicle_id: $('#selCar').val(),
-        command: message
-    };
-    socket.emit('json', msg);
 }
 
 function parseSearch() {
