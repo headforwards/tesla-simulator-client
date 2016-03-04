@@ -34,7 +34,7 @@ var carProto = {
     }
 };
 
-var socket = io('http://localhost:3000');
+var socket = io('http://localhost:8000');
 
 socket.on('json', function(msg){
     if(msg.error) {
@@ -95,4 +95,9 @@ socket.on('connect', function() {
     }
 
     socket.emit('json', command);
+    showScene();
 });
+
+function showScene(){
+    $('#container').fadeIn();
+}

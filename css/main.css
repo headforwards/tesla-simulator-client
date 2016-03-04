@@ -66,8 +66,7 @@ button {
 
     z-index: -100;
 
-    opacity: 0;
-}
+display:none;}
 
 .h {
     color: skyblue
