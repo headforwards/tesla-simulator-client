@@ -28,6 +28,9 @@ var carProto = {
 
     handleCommand: function(msg) {
         this._renderMessage(msg.command);
+
+        vdir *= -1;
+
     }
 };
 

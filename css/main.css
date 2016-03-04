@@ -3,6 +3,7 @@
 html {
     height: 100%;
 }
+
 body {
     font: 13px Helvetica, Arial;
     height: 100%;
@@ -33,6 +34,8 @@ button {
     height: 300px;
     padding: 10px;
 }
+
+
 /* Messages */
 
 .messages-header {
@@ -45,9 +48,50 @@ button {
     margin: 0;
     padding: 0;
 }
+
 .message {
     padding: 5px 10px;
 }
+
 .message:nth-child(odd) {
     background: #eee;
+}
+
+
+/* CAR SCENE */
+
+#container {
+    position: absolute;
+    top: 0px;
+
+    z-index: -100;
+
+    opacity: 0;
+}
+
+.h {
+    color: skyblue
+}
+
+.c {
+    display: inline;
+    margin-left: 1em
+}
+
+#stats {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+#stats #fps {
+    background: transparent !important
+}
+
+#stats #fps #fpsText {
+    color: #888 !important
+}
+
+#stats #fps #fpsGraph {
+    display: none
 }

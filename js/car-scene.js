@@ -62,7 +62,6 @@ init();
 animate();
 
 function init() {
-console.log('1');
     container = document.getElementById('container');
 
     camera = new THREE.PerspectiveCamera(18, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 100000);
