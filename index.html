@@ -3,6 +3,7 @@
   <head>
     <title>Socket Example</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/car.css" type="text/css">
   </head>
   <body>
     <div class="page">
@@ -18,8 +19,7 @@
         </div>
         <div class="input-controls">
           <button onclick="emitMessage('Horn Honked!')">Honk the horn!</button>
-          <button onclick="emitMessage('Lights on')">Turn the lights on</button>
-          <button onclick="emitMessage('Lights off')">Turn the lights off</button>
+          <button onclick="emitMessage('flash_lights')">Flash the lights</button>
         </div>
       </div>
 
@@ -33,7 +33,12 @@
             <option value="green">Green Car</option>
           </select>
         </div>
+        <div class="tesla-car">
+          <div class="js-left-headlight headlight left-headlight"></div>
+          <div class="js-right-headlight headlight right-headlight"></div>
+        </div>
         <ul id="messages"></ul>
+
       </div>
     </div>
 
