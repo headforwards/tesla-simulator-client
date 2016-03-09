@@ -18,8 +18,13 @@
           </select>
         </div>
         <div class="input-controls">
+
+          <button onclick="emitMessage('wake_up_car')">Wake Up Car</button>
           <button onclick="emitMessage('Horn Honked!')">Honk the horn!</button>
           <button onclick="emitMessage('flash_lights')">Flash the lights</button>
+
+          <button onclick="emitMessage('start_charging')">Start Charging</button>
+          <button onclick="emitMessage('stop_charging')">Stop Charging</button>
         </div>
       </div>
 
@@ -36,6 +41,22 @@
         <div class="tesla-car">
           <div class="js-left-headlight headlight left-headlight"></div>
           <div class="js-right-headlight headlight right-headlight"></div>
+          <div class="grill-panel panel-1"></div>
+          <div class="grill-panel panel-2"></div>
+          <div class="grill-panel panel-3"></div>
+          <div class="grill-panel panel-4"></div>
+          <div class="grill-panel panel-5"></div>
+          <div class="grill-panel panel-6"></div>
+          <div class="grill-panel panel-7"></div>
+          <div class="grill-panel panel-8"></div>
+          <div class="grill-panel panel-9"></div>
+          <div class="grill-panel panel-10"></div>
+          <div class="grill-panel panel-11"></div>
+          <div class="grill-panel panel-12"></div>
+        </div>
+        <div class="tesla-state">
+          <div class="js-battery-charge"></div>
+
         </div>
         <ul id="messages"></ul>
 

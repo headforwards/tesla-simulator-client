@@ -34,3 +34,87 @@
 .headlight.off {
     display: none;
 }
+
+.headlight.indicator {
+    background: yellow;
+}
+
+.grill-panel {
+    position: absolute;
+    width: 4px;
+    background: green;
+    opacity: 0.65;
+    display: none;
+}
+
+.panel-1 {
+    height: 47px;
+    top: 179px;
+    left: 157px;
+}
+
+.panel-2 {
+    height: 49px;
+    top: 177px;
+    left: 168px;
+}
+
+.panel-3 {
+    height: 52px;
+    top: 176px;
+    left: 179px;
+}
+
+.panel-4 {
+    height: 54px;
+    top: 175px;
+    left: 191px;
+}
+
+.panel-5 {
+    height: 54px;
+    top: 175px;
+    left: 203px;
+}
+
+.panel-6 {
+    height: 56px;
+    top: 174px;
+    left: 215px;
+}
+
+.panel-7 {
+    height: 56px;
+    top: 174px;
+    left: 251px;
+}
+
+.panel-8 {
+    height: 56px;
+    top: 174px;
+    left: 263px;
+}
+
+.panel-9 {
+    height: 54px;
+    top: 175px;
+    left: 275px;
+}
+
+.panel-10 {
+    height: 54px;
+    top: 175px;
+    left: 287px;
+}
+
+.panel-11 {
+    height: 51px;
+    top: 176px;
+    left: 299px;
+}
+
+.panel-12 {
+    height: 47px;
+    top: 179px;
+    left: 311px;
+}
