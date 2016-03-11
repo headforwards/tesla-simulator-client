@@ -7,39 +7,45 @@ This client is the visual representation of the Tesla demo responding to the act
 
 ## Getting started
 
+### Requirements
+
+The application requires [NodeJS](https://nodejs.org/en/download/) to build a version for the browser using various packages.
+
+It also requires the [Server](https://github.com/headforwards/tesla-simulator-server) running which it will connect too and listen for commands from there.
+
 ### Get the repo
 
 Clone the repo at: ``` git clone https://github.com/headforwards/tesla-simulator-client.git ```
 
 ### Install the dependencies
 
+Make sure you have installed NodeJS (tested with v4.1.2)
+
 ```
-cd socket-client-demo
 npm install
 ```
 
-### Start the Socket.io server which will listen to, and broadcast socket messages, as well as server the index.html file in the browser.
+### Build and test the application
 
 ```
-node index
+npm build
+http-server -p 3000
 ```
 
 ### Viewing in the browser
 
 Open your browser and navigate to [http:/localhost:3000](http:/localhost:3000)
 
-There are 2 panels in the GUI; the left includes input controls, the right the output.
-
-#### Input
-
-Select which car you would like to control from the dropdown; then click on the action to perform on the car.
-When you click an action, a socket message is broadcast which will be caught by any listening client.
+By default the application will visualise all vehicles that the server has created from people calling the API.  You can make the application show a single car by passing the email address used with the Server API in the email parameter: http:/localhost:3000?email=my-api-email
 
 
-#### Output
+### Development work
 
-The output panel listens for broadcast messages and displays them on screen.
-You can choose to listen to all cars or for messages for a specific car.
+You can run 
 
-If you have multiple browser windows open, you will see the messages displayed across all windows :)
+```
+npm watch
+```
 
+Which will watch for any changes to js/main.js and rebuild this for the browser if you save changes to it.
+The build file is not committed to the repository at the moment - we should make a "dist" version for "release".
