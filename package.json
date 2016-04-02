@@ -10,8 +10,8 @@
     "watchify": "^3.7.0"
   },
   "scripts": {
-    "build": "browserify js/main.js -o js/bundle.js",
-    "build-map": "browserify js/main.js --debug | exorcist js/bundle.js.map > js/bundle.js",
-    "watch": "watchify js/main.js -o js/bundle.js --debug --verbose & http-server -p 3000"
+    "build": "./node_modules/browserify/bin/cmd.js js/main.js -o js/bundle.js",
+    "build-map": "./node_modules/browserify/bin/cmd.js js/main.js --debug | exorcist js/bundle.js.map > js/bundle.js",
+    "watch": "./node_modules/watchify/bin/cmd.js js/main.js -o js/bundle.js --debug --verbose & http-server -p 3000"
   }
 }
