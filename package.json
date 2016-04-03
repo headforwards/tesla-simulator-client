@@ -4,6 +4,7 @@
   "description": "Simulator Client for Tesla Model S",
   "dependencies": {
     "browserify": "^13.0.0",
+    "handlebars": "^4.0.5",
     "http-server": "^0.9.0",
     "jquery": "^1.11.1",
     "socket.io": "1.4.5",

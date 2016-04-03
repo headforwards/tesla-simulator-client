@@ -1,15 +1,43 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <title>Socket Example</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
-  </head>
-  <body>
-    <div class="page">
-      <div id="car-container">
-      </div>
-    </div>
+    <link rel="stylesheet" href="css/car.css" type="text/css">
+</head>
 
-     <script src="js/bundle.js"></script>
-  </body>
+<body>
+    <div class="page">
+        <div id="car-container">
+        </div>
+    </div>
+    <audio id="horn_sound" src="sounds/car_horn.mp3"></audio>
+    <script type="text/tmpl" id="tesla-tmpl">
+        <div class="car" id="{{vehicle_id}}">
+            <div class="tesla-car">
+                <div class="js-left-headlight headlight left-headlight"></div>
+                <div class="js-right-headlight headlight right-headlight"></div>
+                <div class="grill-panel panel-1"></div>
+                <div class="grill-panel panel-2"></div>
+                <div class="grill-panel panel-3"></div>
+                <div class="grill-panel panel-4"></div>
+                <div class="grill-panel panel-5"></div>
+                <div class="grill-panel panel-6"></div>
+                <div class="grill-panel panel-7"></div>
+                <div class="grill-panel panel-8"></div>
+                <div class="grill-panel panel-9"></div>
+                <div class="grill-panel panel-10"></div>
+                <div class="grill-panel panel-11"></div>
+                <div class="grill-panel panel-12"></div>
+            </div>
+            <div class="tesla-state">
+                <div class="js-battery-charge"></div>
+            </div>
+            <ul class="messages"></ul>
+        </div>
+    </script>
+    <script src="js/bundle.js"></script>
+</body>
+
 </html>
