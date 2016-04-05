@@ -28,7 +28,7 @@ npm install
 ### Build and test the application
 
 ```
-npm build
+npm run build
 http-server -p 3000
 ```
 
@@ -44,7 +44,7 @@ By default the application will visualise all vehicles that the server has creat
 You can run 
 
 ```
-npm watch
+npm run watch
 ```
 
 Which will watch for any changes to js/main.js and rebuild this for the browser if you save changes to it.

@@ -5,7 +5,10 @@
  * of one or more Tesla cars controlled via the server API.
  */
 var $ = require('jquery');
+var Handlebars = require('handlebars');
 var socket =  require('socket.io-client')('http://localhost:8000');
+
+var carTemplate = Handlebars.compile($('#tesla-tmpl').html());
 
 /* Very simplistic "car" object which draws itself and handles messages / commands
 */
@@ -19,9 +22,11 @@ var carProto = {
     },
 
     _render: function() {
-        this.$car = $('<div class="car" id="' + this._vehicle_id + '"/>');
+        var html = carTemplate({ vehicle_id: this._vehicle_id });
 
-        this.$car.html('<ul class="messages"/>');
+        this.$car = $(html);
+
+        //this.$car.html('<ul class="messages"/>');
         this._renderMessage('created "' + this._vehicle_id + '" car');
     },
 
@@ -31,6 +36,11 @@ var carProto = {
     },
 
     handleCommand: function(msg) {
+        if("function" === typeof this[msg.command]) {
+            this[msg.command](msg);
+            return;
+        }
+
         var messageStr = msg.command;
         for(var param in msg) {
             if(param !== 'command' && param !== 'vehicle_id') {
@@ -38,6 +48,72 @@ var carProto = {
             }
         }
         this._renderMessage(messageStr);
+    },
+
+    //Commands
+    honk_horn: function() {
+        $('#horn_sound')[0].play();
+    },
+
+    lights_on: function() {
+        $('.headlight', this.$car).addClass('on');
+    },
+
+    lights_off: function() {
+        $('.headlight', this.$car).removeClass('on');
+    },
+
+    wake_up: function() {
+        var delay = 150,
+            self = this;
+
+        self._flashLights(delay);
+        setTimeout(function() {
+            self._flashLights(delay);
+        }, delay * 2);
+
+
+        for(var i = 1; i < 7; i++) {
+            self._fadeInPanel(i, i);
+        }
+        for(var j = 13; j > 6; j--) {
+            self._fadeInPanel(j);
+        }
+    },
+
+    _flashLights: function(delay) {
+        var headlights = $('.headlight', this.$car),
+            lightsOn = headlights.hasClass('on');
+
+        function revertHeadlights(next){
+            if(!lightsOn) {
+                headlights.removeClass('on')
+            }
+            headlights.removeClass('indicator');
+            next();
+        }
+        if(!lightsOn) {
+            headlights.addClass('on')
+        }
+        headlights.addClass('indicator')
+            .delay(delay).queue(revertHeadlights);
+    },
+
+    _fadeInPanel: function(index, delay) {
+        var fadeDelay = 400;
+        $('.panel-' + index, this.$car).delay(fadeDelay*(index+1))
+            .queue(function(next){
+                $(this).fadeIn(fadeDelay);
+                next();
+            });
+    },
+
+    start_charging: function() {
+        $('.js-battery-charge', this.$car).html('Charging');
+    },
+
+    stop_charging: function() {
+        $('.js-battery-charge', this.$car).html('Not charging');
     }
 };
 
