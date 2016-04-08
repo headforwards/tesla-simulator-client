@@ -6,7 +6,14 @@
  */
 var $ = require('jquery');
 var Handlebars = require('handlebars');
-var socket =  require('socket.io-client')('http://localhost:8000');
+var socketUrl = window.location.protocol + '//' + window.location.hostname;
+if('tesla.headforwards.com' !== window.location.hostname) {
+  //assume we're not running on nginx box and add a port.
+  socketUrl += ':4000';
+}
+
+//console.log('socketUrl: ', socketUrl);
+var socket =  require('socket.io-client')(socketUrl);
 
 var carTemplate = Handlebars.compile($('#tesla-tmpl').html());
 
